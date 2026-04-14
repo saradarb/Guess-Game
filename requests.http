@@ -1,0 +1,8 @@
+### 1. Start or Get Game Status
+GET http://localhost:8082/api/game
+
+### 2. Submit a Guess (Change the number after 'guess=')
+POST http://localhost:8082/api/game/guess?guess=50
+
+### 3. Reset the Game
+POST http://localhost:8082/api/game/reset
