@@ -10,7 +10,7 @@ import java.util.UUID;
 public class GameController {
 
     private final GameService service;
-    // For a simple lab, we'll use one ID. In a real app, the client sends the ID.
+    // simple lab, use one ID. real app, client sends ID.
     private final String sessionId = "player-1";
 
     public GameController(GameService service) {

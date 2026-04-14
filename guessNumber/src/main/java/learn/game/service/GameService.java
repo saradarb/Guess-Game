@@ -13,21 +13,21 @@ public class GameService {
     private final Map<String, GameSession> sessions = new HashMap<>();
     private final Random random = new Random();
 
-    // 1. The Gatekeeper
+    // Gatekeeper
     public GameSession get(String id) {
-        // We use a lambda here. It will only call createFreshGame if the ID is missing.
+        
         return sessions.computeIfAbsent(id, k -> createFreshGame());
     }
 
-    // 2. The Reset/Start Logic
+
     public GameSession startNewGame(String id) {
         GameSession session = createFreshGame();
-        sessions.put(id, session); // Manual put is safe here because it's not inside computeIfAbsent
+        sessions.put(id, session); // Manual put is safe
         return session;
     }
 
-    // 3. The Object Creator
-    // This is private because only the Service should use it to build the game object.
+
+    // Service  to build the game object.
     private GameSession createFreshGame() {
         GameSession session = new GameSession();
         session.setTargetNumber(random.nextInt(1, 101));
@@ -37,7 +37,7 @@ public class GameService {
         return session; // No sessions.put() here!
     }
 
-    // 4. The Game Logic
+
     public GameSession makeGuess(String id, int guess) {
         GameSession session = get(id);
 
